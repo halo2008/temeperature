@@ -11,8 +11,6 @@ var button = document.getElementById('btn-cel');
 
 var button_2 = document.getElementById('btn-cel-2');
 
-var button_3 = document.getElementById('btn-cel-3');
-
 var temp;
 
 var tempx;
