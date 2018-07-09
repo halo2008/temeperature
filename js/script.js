@@ -11,6 +11,8 @@ var button = document.getElementById('btn-cel');
 
 var button_2 = document.getElementById('btn-cel-2');
 
+var button_3 = document.getElementById('btn-cel-3');
+
 var temp;
 
 var tempx;
@@ -50,9 +52,10 @@ button.addEventListener('click', function(){
     output_2.innerHTML ='za gorąco';
   }
   
-  waterOfStateCondition();
- 
+  waterOfStateCondition(); 
 });
+
+addNewLine();
 
 button_2.addEventListener('click', function(){  
     
@@ -86,11 +89,12 @@ button_2.addEventListener('click', function(){
     output_2.innerHTML ='za gorąco';
   }
   
-  waterOfStateCondition();
- 
+  waterOfStateCondition(); 
 });
 
-function waterOfStateCondition () {
+addNewLine();
+
+function waterOfStateCondition() {
   if (temp < 0 || tempx < 0) {
     output_3.innerHTML ='woda zamarzła';
   }
@@ -106,4 +110,8 @@ function waterOfStateCondition () {
   else {
     output_3.innerHTML ='woda w stanie gazowym';
   }
+}
+
+function addNewLine() { 
+    document.write('<br> New Line <br>');  
 }
