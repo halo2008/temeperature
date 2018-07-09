@@ -3,25 +3,27 @@
 
 var output = document.getElementById('output-temp');
 
-var output_2 =document.getElementById('output-text');
+var output_2 = document.getElementById('output-text');
+
+var output_3 = document.getElementById('water');
 
 var button = document.getElementById('btn-cel');
 
 var button_2 = document.getElementById('btn-cel-2');
 
+var temp;
 
+var tempx;
 
 button.addEventListener('click', function(){  
     
   temp = window.prompt('wpisz temperature w stopniach celciusza');
   
-  var temp = parseFloat(temp);
-  
-  var tempx;
+  temp = parseFloat(temp);
   
   tempx = temp * 1.8 + 32;
   
-  output.innerHTML = 'temperatura w stopniach celsjusza ' +temp+ ' temperatura w stopniach farenchaita '+ tempx;
+  output.innerHTML = 'temperatura w stopniach celsjusza ' +temp;
   
    if (isNaN(temp)) {
     window.prompt('nie podałeś liczby');
@@ -47,18 +49,18 @@ button.addEventListener('click', function(){
   else {
     output_2.innerHTML ='za gorąco';
   }
+  
+  waterOfStateCondition();
  
 });
 
 button_2.addEventListener('click', function(){  
     
-  temp = window.prompt('wpisz temperature w stopniach celciusza');
-  
-  var tempx;
+  temp = window.prompt('wpisz temperature w stopniach celciusza');  
   
   tempx = (temp - 32) / 1.8;
   
-  output.innerHTML = 'temperatura w stopniach fahrenheita ' +temp+ ' temperatura w stopniach celsjusza '+ tempx;
+  output.innerHTML = 'temperatura w stopniach fahrenheita ' +temp;
   
   if (isNaN(temp)) {
     window.prompt('nie podałeś liczby');
@@ -83,5 +85,25 @@ button_2.addEventListener('click', function(){
   else {
     output_2.innerHTML ='za gorąco';
   }
+  
+  waterOfStateCondition();
  
-}); 
+});
+
+function waterOfStateCondition () {
+  if (temp < 0 || tempx < 0) {
+    output_3.innerHTML ='woda zamarzła';
+  }
+  
+  else if (temp === 0 || tempx === 0) {
+    output_3.innerHTML ='trzeba sprawdzić ;)';
+  }
+  
+  else if (temp > 0 && temp < 100 || tempx > 0 && tempx < 100) {
+    output_3.innerHTML ='woda w stanie ciekłym';
+  }
+  
+  else {
+    output_3.innerHTML ='woda w stanie gazowym';
+  }
+}
